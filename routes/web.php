@@ -3,6 +3,17 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LapanganController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TransaksiController;
+
+
+Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi.index');
+Route::get('/transaksi/{id}/edit', [TransaksiController::class, 'edit'])->name('transaksi.edit');
+Route::get('/transaksi/{id}', [TransaksiController::class, 'show'])->name('transaksi.show');
+Route::delete('/transaksi/{id}', [TransaksiController::class, 'destroy'])->name('transaksi.destroy');
+Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi.index');
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/lapangan', [LapanganController::class, 'index']);
 // Route::get('/', function () {
 //     return view('welcome');
@@ -12,7 +23,14 @@ Route::get('/lapangan', [LapanganController::class, 'index']);
 // });
 Route::get('/dashboard', function () {
     return view('dashboard');
-
+});
+Route::get('/laporan', function () {
+    return view('laporan');
+});
+    Route::get('/transaksi', function () {
+        return view('transaksi');
+    
+        
     
     });
     Route::get('/customer', function () {
